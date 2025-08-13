@@ -15,9 +15,18 @@ def send_telegram_message(message):
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
     payload = {"chat_id": CHAT_ID, "text": message}
     try:
-        requests.post(url, data=payload)
+        response = requests.post(url, data=payload, timeout=10)
+        
+        # BU SATIR EN ÖNEMLİSİ:
+        # Telegram'dan 4xx veya 5xx gibi bir hata kodu dönerse,
+        # Python'un bir hata fırlatmasını sağlar ve aşağıdaki except bloğu çalışır.
+        response.raise_for_status()
+        
+        print(f"✅ Mesaj başarıyla gönderildi: {message}") # Başarı durumunu da loglayalım.
+
     except Exception as e:
-        print("Telegram gönderim hatası:", e)
+        # Hata logunu daha anlaşılır hale getirelim.
+        print(f"❌ Telegram gönderim hatası: {e}")
 
 def check_passo():
     try:
@@ -44,6 +53,7 @@ if __name__ == "__main__":
     while True:
         check_passo()
         time.sleep(60)
+
 
 
 
