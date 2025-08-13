@@ -2,6 +2,8 @@ import time
 import requests
 from bs4 import BeautifulSoup
 import os
+print("BOT_TOKEN:", BOT_TOKEN)
+print("CHAT_ID:", CHAT_ID)
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHAT_ID = os.getenv("CHAT_ID")
@@ -40,3 +42,4 @@ if __name__ == "__main__":
     while True:
         check_passo()
         time.sleep(60)
+
