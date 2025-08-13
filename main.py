@@ -44,7 +44,7 @@ def check_passo():
                 send_telegram_message("🎟️ Türkiye - İspanya bilet satışı başladı!")
         else:
             print("Maç henüz eklenmemiş.")
-            send_telegram_message("Test: Döngü içinden mesaj gönderiliyor.")
+            
     except Exception as e:
         print("Hata:", e)
 
@@ -53,6 +53,7 @@ if __name__ == "__main__":
     while True:
         check_passo()
         time.sleep(60)
+
 
 
 
