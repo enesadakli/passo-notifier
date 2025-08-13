@@ -2,11 +2,12 @@ import time
 import requests
 from bs4 import BeautifulSoup
 import os
-print("BOT_TOKEN:", BOT_TOKEN)
-print("CHAT_ID:", CHAT_ID)
+
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHAT_ID = os.getenv("CHAT_ID")
+print("BOT_TOKEN:", BOT_TOKEN)
+print("CHAT_ID:", CHAT_ID)
 
 PASSO_URL = "https://www.passo.com.tr/tr/kategori/futbol-mac-biletleri/4615"
 
@@ -42,4 +43,5 @@ if __name__ == "__main__":
     while True:
         check_passo()
         time.sleep(60)
+
 
